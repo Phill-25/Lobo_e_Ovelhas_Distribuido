@@ -8,6 +8,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
 
+import clientes.Cliente1;
 import servidorInterface.ServidorInterface;
 
 @SuppressWarnings("serial")
@@ -101,6 +102,10 @@ public class Servidor1 extends UnicastRemoteObject implements ServidorInterface 
 	
 	return tabuleiro;
 	
+	}
+	
+	public void Jogo(int[][] tabuleiro, Cliente1 C1, Cliente2 C2) {
+		
 	}
 
 
