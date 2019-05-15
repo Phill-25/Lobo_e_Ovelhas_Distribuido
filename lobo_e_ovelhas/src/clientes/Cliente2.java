@@ -3,8 +3,6 @@ package clientes;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
-import javax.swing.plaf.synth.SynthSpinnerUI;
-
 import servidores.Servidor2;
 
 public class Cliente2 {

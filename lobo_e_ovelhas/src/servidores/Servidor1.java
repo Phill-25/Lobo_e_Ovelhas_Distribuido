@@ -10,6 +10,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 import servidorInterface.ServidorInterface;
 
+@SuppressWarnings("serial")
 public class Servidor1 extends UnicastRemoteObject implements ServidorInterface {
 
 	private String nome;
@@ -53,11 +54,6 @@ public class Servidor1 extends UnicastRemoteObject implements ServidorInterface 
 		return servidor1;
 	}
 	
-	
-	public static void remo() {
-		
-	}
-
 	@Override
 	public void conectaServidorRemoto() throws RemoteException {
 		try {
