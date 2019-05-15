@@ -10,6 +10,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 import servidorInterface.ServidorInterface;
 
+@SuppressWarnings("serial")
 public class Servidor2 extends UnicastRemoteObject implements ServidorInterface {
 
 	private String nome;
