@@ -9,6 +9,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
 
 import clientes.Cliente1;
+import clientes.Cliente2;
 import servidorInterface.ServidorInterface;
 
 @SuppressWarnings("serial")
