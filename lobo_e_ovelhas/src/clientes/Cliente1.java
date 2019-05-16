@@ -9,6 +9,7 @@ public class Cliente1 {
 	
 	public static void main(String[] args) throws RemoteException {
 		
+		System.out.println("Marcos");
 		
 		Servidor1 serv1 = Servidor1.startServidor();
 		try {
