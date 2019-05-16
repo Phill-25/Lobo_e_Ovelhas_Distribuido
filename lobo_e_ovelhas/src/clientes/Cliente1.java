@@ -9,7 +9,7 @@ public class Cliente1 {
 	
 	public static void main(String[] args) throws RemoteException {
 		
-		System.out.println("Marcos");
+		System.out.println("Confiram ai se ta dando certo...consegui comitar mas o push não consegui não");
 		
 		Servidor1 serv1 = Servidor1.startServidor();
 		try {
