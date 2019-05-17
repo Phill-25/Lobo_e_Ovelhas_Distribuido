@@ -9,8 +9,6 @@ public class Cliente1 {
 	
 	public static void main(String[] args) throws RemoteException {
 		
-		System.out.println("Testando....");
-		
 		Servidor1 serv1 = Servidor1.startServidor();
 		try {
 			System.in.read();// só uma pausa para que o servidor 2 possa ser levantado
