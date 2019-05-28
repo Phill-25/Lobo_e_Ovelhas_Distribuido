@@ -43,7 +43,7 @@ public class Servidor1 extends UnicastRemoteObject implements ServidorInterface 
 			servidor1 = new Servidor1("Servidor1");
 			LocateRegistry.createRegistry(3694);
 			Naming.rebind("//127.0.0.1:3694/Servidor1",(Remote)servidor1);
-			System.out.println("Servidor remoto pronto.");
+			System.out.println(servidor1.iAm()+" pronto.");
 			return servidor1;
 		}
 		catch(RemoteException e){
