@@ -28,7 +28,7 @@ public class Servidor1 extends UnicastRemoteObject implements ServidorInterface 
 	public Servidor1(String nome) throws RemoteException {
 		super();
 		this.nome = nome;
-		
+
 	}
 
 	@Override
@@ -55,13 +55,13 @@ public class Servidor1 extends UnicastRemoteObject implements ServidorInterface 
 		}
 		return servidor1;
 	}
-	
+
 	@Override
 	public void conectaServidorRemoto() throws RemoteException {
 		try {
 			servidorRemoto = (ServidorInterface) Naming.lookup("//127.0.0.1:3696/Servidor2");
-		
-		
+
+
 		} catch (MalformedURLException | NotBoundException e) {
 			System.out.println("Erro no cliente: "+e.getMessage());
 			e.printStackTrace();
@@ -81,33 +81,50 @@ public class Servidor1 extends UnicastRemoteObject implements ServidorInterface 
 		}
 
 	}
-	
-//	public int[][] tabuleiroInicial() {
-//		
-//	int[][] tabuleiro = {
-//			{-2, 1, -2, 1, -2, 1, -2, 1}, // 8
-//			{0, -2, 0, -2, 0, -2, 0, -2}, // 7
-//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 6
-//			{0, -2, 0, -2, 0, -2, 0, -2}, // 5
-//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 4
-//			{0, -2, 0, -2, 0, -2, 0, -2}, // 3
-//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 2
-//			{0, -2, 0, -2, 8, -2, 0, -2} // 1
-////			 a, b,  c, d,  e,  f,  g, h
-//	};	 
-//	
-////	-2 são posições invalidas
-////	0 são posições validas
-////	1 são as ovelhinhas
-////	8 é o Lobão
-//	
-//	return tabuleiro;
-//	
-//	}
-	
-//	public void Jogo(int[][] tabuleiro, Cliente1 C1, Cliente2 C2) {
-//		
-//	}
+
+	@Override
+	public void servExecutaJogada(int iOrigem, int jOrigem, int iDestino, int jDestino, char jogador)
+			throws RemoteException {
+		// TODO Auto-generated method stub
+
+	}
+	@Override
+	public boolean servFimdeJogo() throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public void servImprimeTabuleiro() throws RemoteException {
+		// TODO Auto-generated method stub
+
+	}
+
+	//	public int[][] tabuleiroInicial() {
+	//		
+	//	int[][] tabuleiro = {
+	//			{-2, 1, -2, 1, -2, 1, -2, 1}, // 8
+	//			{0, -2, 0, -2, 0, -2, 0, -2}, // 7
+	//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 6
+	//			{0, -2, 0, -2, 0, -2, 0, -2}, // 5
+	//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 4
+	//			{0, -2, 0, -2, 0, -2, 0, -2}, // 3
+	//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 2
+	//			{0, -2, 0, -2, 8, -2, 0, -2} // 1
+	////			 a, b,  c, d,  e,  f,  g, h
+	//	};	 
+	//	
+	////	-2 são posições invalidas
+	////	0 são posições validas
+	////	1 são as ovelhinhas
+	////	8 é o Lobão
+	//	
+	//	return tabuleiro;
+	//	
+	//	}
+
+	//	public void Jogo(int[][] tabuleiro, Cliente1 C1, Cliente2 C2) {
+	//		
+	//	}
 
 
 }

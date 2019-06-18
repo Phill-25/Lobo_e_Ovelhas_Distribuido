@@ -59,56 +59,75 @@ public class Servidor2 extends UnicastRemoteObject implements ServidorInterface 
 	public void conectaServidorRemoto() throws RemoteException {
 		try {
 			servidorRemoto = (ServidorInterface) Naming.lookup("//127.0.0.1:3694/Servidor1");
-		
-		
+
+
 		} catch (MalformedURLException | NotBoundException e) {
 			System.out.println("Erro no cliente: "+e.getMessage());
 			e.printStackTrace();
 		}
 
 	}
-	
-@Override
+
+	@Override
 	public void testRemoto() {
-		
-		
+
+
 		try {
 			System.out.println("Esse é: "+iAm());
 			System.out.println("conectado com: "+servidorRemoto.iAm());
-			
+
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
-//public int[][] tabuleiroInicial() {
-//	
-//	int[][] tabuleiro = {
-//			{-2, 1, -2, 1, -2, 1, -2, 1}, // 8
-//			{0, -2, 0, -2, 0, -2, 0, -2}, // 7
-//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 6
-//			{0, -2, 0, -2, 0, -2, 0, -2}, // 5
-//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 4
-//			{0, -2, 0, -2, 0, -2, 0, -2}, // 3
-//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 2
-//			{0, -2, 0, -2, 8, -2, 0, -2} // 1
-////			 a, b,  c, d,  e,  f,  g, h
-//	};	 
-//	
-////	-2 são posições invalidas
-////	0 são posições validas
-////	1 são as ovelhinhas
-////	8 é o Lobão
-//	
-//	return tabuleiro;
-//	
-//	}
-//	
-//	public void Jogo(int[][] tabuleiro, Cliente1 C1, Cliente2 C2) {
-//		System.out.println("teste de commit Maycon");
-//	}
+	@Override
+	public void servExecutaJogada(int iOrigem, int jOrigem, int iDestino, int jDestino, char jogador)
+			throws RemoteException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean servFimdeJogo() throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void servImprimeTabuleiro() throws RemoteException {
+		// TODO Auto-generated method stub
+
+	}
+
+	//public int[][] tabuleiroInicial() {
+	//	
+	//	int[][] tabuleiro = {
+	//			{-2, 1, -2, 1, -2, 1, -2, 1}, // 8
+	//			{0, -2, 0, -2, 0, -2, 0, -2}, // 7
+	//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 6
+	//			{0, -2, 0, -2, 0, -2, 0, -2}, // 5
+	//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 4
+	//			{0, -2, 0, -2, 0, -2, 0, -2}, // 3
+	//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 2
+	//			{0, -2, 0, -2, 8, -2, 0, -2} // 1
+	////			 a, b,  c, d,  e,  f,  g, h
+	//	};	 
+	//	
+	////	-2 são posições invalidas
+	////	0 são posições validas
+	////	1 são as ovelhinhas
+	////	8 é o Lobão
+	//	
+	//	return tabuleiro;
+	//	
+	//	}
+	//	
+	//	public void Jogo(int[][] tabuleiro, Cliente1 C1, Cliente2 C2) {
+	//		System.out.println("teste de commit Maycon");
+	//	}
 
 
 }
