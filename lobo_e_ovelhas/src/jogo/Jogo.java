@@ -37,9 +37,57 @@ public class Jogo implements Interface_Jogo {
 	}
 
 	@Override
-	public boolean fimdeJogo() {
-		// TODO Auto-generated method stub
+	public boolean fimdeJogoLobo() {
+		
+		for (int i = 0; i < tabuleiro.length; i+=2) {
+			if(tabuleiro[7][i] == 8) {
+				return true;
+			}
+
+		}
 		return false;
+	}
+	
+	
+	public boolean fimdeJogoOvelha() {
+		for (int i = 0; i < tabuleiro.length; i++) {
+			for (int j = 0; j < tabuleiro.length; j++) {
+				if(tabuleiro[i][j]==8) {
+					
+					if(j+1 >= tabuleiro.length) {
+						if(tabuleiro[i-1][j-1] == 0 && tabuleiro[i+1][j-1] == 0)
+							return true;
+						
+						break;
+						
+					}if(j-1 < 0) {
+						if(tabuleiro[i-1][j+1] == 0 && tabuleiro[i+1][j+1] == 0)
+							return true;
+						
+						break;
+					}
+					
+					if(i-1 < 0) {
+						if(tabuleiro[i+1][j-1] == 0 && tabuleiro[i+1][j+1] == 0)
+							return true;
+						
+						break;
+					}
+					
+					if(i+1 >= tabuleiro.length) {
+						if(tabuleiro[i-1][j-1] == 0 && tabuleiro[i+1][j-1] == 0 && tabuleiro[i-1][j+1] == 0 && tabuleiro[i+1][j+1] == 0)
+							return true;
+						
+						break;
+					}
+					
+					
+				}
+			}
+			
+		}
+		
+		return true;
 	}
 
 	@Override
