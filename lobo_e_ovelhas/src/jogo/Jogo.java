@@ -35,6 +35,13 @@ public class Jogo implements Interface_Jogo {
 			System.out.println("Jogada Inválida");
 		}
 	}
+	
+	@Override
+	public void sincJogada(int iOrigem, int jOrigem, int iDestino, int jDestino, char jogador) {
+		
+		executaJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
+		
+	}
 
 	@Override
 	public boolean fimdeJogoLobo() {
@@ -114,7 +121,12 @@ public class Jogo implements Interface_Jogo {
 
 		System.out.println("");	
 	}
-
+	
+	@Override
+	public boolean fimDeJogo() {
+		
+		return fimdeJogoLobo() || fimdeJogoOvelha();
+	}
 
 	public Jogo() {
 		for (int i = 0; i < tabuleiro.length; i++) {
@@ -132,5 +144,14 @@ public class Jogo implements Interface_Jogo {
 		tabuleiro[0][3] = 8;
 
 	}
+
+	
+	@Override
+	public void nextPayer() {
+		
+		System.out.println("Sua vez!");
+		
+	}
+	
 
 }

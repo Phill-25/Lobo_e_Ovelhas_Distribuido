@@ -2,6 +2,7 @@ package clientes;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.util.Scanner;
 
 import servidores.Servidor2;
 
@@ -19,9 +20,32 @@ public class Cliente2 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		serv2.iAm();
 		serv2.conectaServidorRemoto();
-		serv2.testRemoto();
-
+		//serv2.testRemoto();
+		try {
+			System.in.read(); // só uma pausa para que o servidor 1 possa ser levantado
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Scanner ler = new Scanner(System.in);
+		int iO,jO,iD,jD;
+		System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
+		serv2.servImprimeTabuleiro();
+		while(true) {
+			
+			iO = ler.nextInt();
+			jO = ler.nextInt();
+			
+			iD = ler.nextInt();
+			jD = ler.nextInt();
+			
+			serv2.servExecutaJogada(iO, jO, iD, jD, 'L');
+			System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
+		}
+		
 
 	}
 

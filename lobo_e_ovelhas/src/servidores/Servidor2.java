@@ -10,6 +10,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 import clientes.Cliente1;
 import clientes.Cliente2;
+import jogo.Jogo;
 import servidorInterface.ServidorInterface;
 
 @SuppressWarnings("serial")
@@ -18,12 +19,8 @@ public class Servidor2 extends UnicastRemoteObject implements ServidorInterface 
 	private String nome;
 	private static Servidor2 servidor2;
 	private ServidorInterface servidorRemoto;// aqui vai estar a referencia da instancia do segundo servidor...
+	private Jogo jogoServ2 = new Jogo();
 
-	@Override
-	public Object executaJogada(int c1, int c2) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public Servidor2(String nome) throws RemoteException {
 		this.nome = nome;
@@ -82,52 +79,39 @@ public class Servidor2 extends UnicastRemoteObject implements ServidorInterface 
 		}
 
 	}
-
 	@Override
-	public void servExecutaJogada(int iOrigem, int jOrigem, int iDestino, int jDestino, char jogador)
-			throws RemoteException {
-		// TODO Auto-generated method stub
+	public void servExecutaJogada(int iOrigem, int jOrigem, int iDestino, int jDestino, char jogador)throws RemoteException {
+		
+		jogoServ2.executaJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
+		servidorRemoto.servSincJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
+		servidorRemoto.nextPayer();
 
 	}
-
+	
+	@Override
+	public void servSincJogada(int iOrigem, int jOrigem, int iDestino, int jDestino, char jogador)
+			throws RemoteException {
+		jogoServ2.sincJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
+		
+	}
+	
 	@Override
 	public boolean servFimdeJogo() throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+				return jogoServ2.fimDeJogo();
 	}
-
 	@Override
 	public void servImprimeTabuleiro() throws RemoteException {
-		// TODO Auto-generated method stub
+		jogoServ2.imprimeTabuleiro();
 
 	}
+	
+	@Override
+	public void nextPayer() throws RemoteException {
+		jogoServ2.nextPayer();
+		
+	}
 
-	//public int[][] tabuleiroInicial() {
-	//	
-	//	int[][] tabuleiro = {
-	//			{-2, 1, -2, 1, -2, 1, -2, 1}, // 8
-	//			{0, -2, 0, -2, 0, -2, 0, -2}, // 7
-	//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 6
-	//			{0, -2, 0, -2, 0, -2, 0, -2}, // 5
-	//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 4
-	//			{0, -2, 0, -2, 0, -2, 0, -2}, // 3
-	//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 2
-	//			{0, -2, 0, -2, 8, -2, 0, -2} // 1
-	////			 a, b,  c, d,  e,  f,  g, h
-	//	};	 
-	//	
-	////	-2 são posições invalidas
-	////	0 são posições validas
-	////	1 são as ovelhinhas
-	////	8 é o Lobão
-	//	
-	//	return tabuleiro;
-	//	
-	//	}
-	//	
-	//	public void Jogo(int[][] tabuleiro, Cliente1 C1, Cliente2 C2) {
-	//		System.out.println("teste de commit Maycon");
-	//	}
+
 
 
 }

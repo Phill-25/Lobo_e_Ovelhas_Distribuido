@@ -10,6 +10,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 import clientes.Cliente1;
 import clientes.Cliente2;
+import jogo.Jogo;
 import servidorInterface.ServidorInterface;
 
 @SuppressWarnings("serial")
@@ -18,12 +19,8 @@ public class Servidor1 extends UnicastRemoteObject implements ServidorInterface 
 	private String nome;
 	private static Servidor1 servidor1;
 	private  ServidorInterface servidorRemoto;// aqui vai estar a referencia da instancia do segundo servidor...
+	private Jogo jogoServ1 = new Jogo(); 
 
-	@Override
-	public Object executaJogada(int c1, int c2) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public Servidor1(String nome) throws RemoteException {
 		super();
@@ -83,48 +80,38 @@ public class Servidor1 extends UnicastRemoteObject implements ServidorInterface 
 	}
 
 	@Override
-	public void servExecutaJogada(int iOrigem, int jOrigem, int iDestino, int jDestino, char jogador)
-			throws RemoteException {
-		// TODO Auto-generated method stub
+	public void servExecutaJogada(int iOrigem, int jOrigem, int iDestino, int jDestino, char jogador)throws RemoteException {
+		
+		jogoServ1.executaJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
+		servidorRemoto.servSincJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
+		servidorRemoto.nextPayer();
 
 	}
+	
+	@Override
+	public void servSincJogada(int iOrigem, int jOrigem, int iDestino, int jDestino, char jogador)
+			throws RemoteException {
+		jogoServ1.sincJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
+		
+	}
+	
 	@Override
 	public boolean servFimdeJogo() throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+				return jogoServ1.fimDeJogo();
 	}
 	@Override
 	public void servImprimeTabuleiro() throws RemoteException {
-		// TODO Auto-generated method stub
+		jogoServ1.imprimeTabuleiro();
 
 	}
+	
+	@Override
+	public void nextPayer() throws RemoteException {
+		jogoServ1.nextPayer();
+		
+	}
 
-	//	public int[][] tabuleiroInicial() {
-	//		
-	//	int[][] tabuleiro = {
-	//			{-2, 1, -2, 1, -2, 1, -2, 1}, // 8
-	//			{0, -2, 0, -2, 0, -2, 0, -2}, // 7
-	//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 6
-	//			{0, -2, 0, -2, 0, -2, 0, -2}, // 5
-	//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 4
-	//			{0, -2, 0, -2, 0, -2, 0, -2}, // 3
-	//			{-2, 0, -2, 0, -2, 0, -2, 0}, // 2
-	//			{0, -2, 0, -2, 8, -2, 0, -2} // 1
-	////			 a, b,  c, d,  e,  f,  g, h
-	//	};	 
-	//	
-	////	-2 são posições invalidas
-	////	0 são posições validas
-	////	1 são as ovelhinhas
-	////	8 é o Lobão
-	//	
-	//	return tabuleiro;
-	//	
-	//	}
-
-	//	public void Jogo(int[][] tabuleiro, Cliente1 C1, Cliente2 C2) {
-	//		
-	//	}
+	
 
 
 }
