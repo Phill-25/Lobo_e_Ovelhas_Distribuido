@@ -52,16 +52,7 @@ public class Cliente1 {
 			}
 		} catch (RemoteException Re) {
 			
-			while(true) {
-				iO = ler.nextInt();
-				jO = ler.nextInt();
-				
-				iD = ler.nextInt();
-				jD = ler.nextInt();
-				
-				serv1.servBkExecutaJogada(iO-1, jO-1, iD-1, jD-1, 'O');
-				System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
-			}
+
 		}
 		
 		
