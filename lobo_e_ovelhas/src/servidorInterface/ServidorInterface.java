@@ -16,6 +16,8 @@ public interface ServidorInterface extends Remote {
 	
 	public void servExecutaJogada(int iOrigem, int jOrigem, int iDestino , int jDestino, char jogador)throws RemoteException;
 	
+	void servBkExecutaJogada(int iOrigem, int jOrigem, int iDestino, int jDestino, char jogador) throws RemoteException;
+	
 	public void servImprimeTabuleiro()throws RemoteException;
 	
 	public boolean servFimdeJogo()throws RemoteException;
@@ -23,4 +25,5 @@ public interface ServidorInterface extends Remote {
 	public void servSincJogada(int iOrigem, int jOrigem, int iDestino , int jDestino, char jogador)throws RemoteException;
 	
 	public void nextPayer() throws RemoteException;
+
 }

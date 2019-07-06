@@ -48,6 +48,7 @@ public class Cliente1 {
 				System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
 			}
 		} catch (RemoteException Re) {
+			
 			System.out.println("Erro aqui!");
 			Re.getStackTrace();
 		}

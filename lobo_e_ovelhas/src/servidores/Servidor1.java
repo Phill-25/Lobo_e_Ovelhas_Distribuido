@@ -100,6 +100,15 @@ public class Servidor1 extends UnicastRemoteObject implements ServidorInterface 
 	}
 	
 	@Override
+	public void servBkExecutaJogada(int iOrigem, int jOrigem, int iDestino, int jDestino, char jogador)throws RemoteException {
+		
+		jogoServ1.executaJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
+		bkPrimario.servSincJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
+		bkPrimario.nextPayer();
+
+	}
+	
+	@Override
 	public void servSincJogada(int iOrigem, int jOrigem, int iDestino, int jDestino, char jogador)
 			throws RemoteException {
 		jogoServ1.sincJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
