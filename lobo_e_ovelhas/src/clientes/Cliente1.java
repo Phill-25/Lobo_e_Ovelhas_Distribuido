@@ -33,16 +33,23 @@ public class Cliente1 {
 		Scanner ler = new Scanner(System.in);
 		int iO,jO,iD,jD;
 		serv1.servImprimeTabuleiro();
+		System.out.println("Você joga com as Ovelhas!");
 		System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
-		while(true) {
-			iO = ler.nextInt();
-			jO = ler.nextInt();
-			
-			iD = ler.nextInt();
-			jD = ler.nextInt();
-			
-			serv1.servExecutaJogada(iO, jO, iD, jD, 'O');
-			System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
+		
+		try {
+			while(true) {
+				iO = ler.nextInt();
+				jO = ler.nextInt();
+				
+				iD = ler.nextInt();
+				jD = ler.nextInt();
+				
+				serv1.servExecutaJogada(iO, jO, iD, jD, 'O');
+				System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
+			}
+		} catch (RemoteException Re) {
+			System.out.println("Erro aqui!");
+			Re.getStackTrace();
 		}
 		
 		

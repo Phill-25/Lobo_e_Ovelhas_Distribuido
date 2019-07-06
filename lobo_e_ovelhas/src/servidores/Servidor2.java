@@ -18,7 +18,10 @@ public class Servidor2 extends UnicastRemoteObject implements ServidorInterface 
 
 	private String nome;
 	private static Servidor2 servidor2;
+	private static Servidor2 bkServidor2;
+	
 	private ServidorInterface servidorRemoto;// aqui vai estar a referencia da instancia do segundo servidor...
+	private ServidorInterface bkPrimario;
 	private Jogo jogoServ2 = new Jogo();
 
 
@@ -39,6 +42,11 @@ public class Servidor2 extends UnicastRemoteObject implements ServidorInterface 
 			servidor2 = new Servidor2("Servidor2");
 			LocateRegistry.createRegistry(3696);
 			Naming.rebind("//127.0.0.1:3696/Servidor2",(Remote)servidor2);
+			
+			bkServidor2 = new Servidor2("bkSrevidor2");
+			LocateRegistry.createRegistry(3796);
+			Naming.rebind("//127.0.0.1:3796/bkSrevidor2",(Remote)servidor2);
+			
 			System.out.println(servidor2.iAm()+" pronto.");
 			return servidor2;
 		}
@@ -55,12 +63,14 @@ public class Servidor2 extends UnicastRemoteObject implements ServidorInterface 
 	@Override
 	public void conectaServidorRemoto() throws RemoteException {
 		try {
+			
 			servidorRemoto = (ServidorInterface) Naming.lookup("//127.0.0.1:3694/Servidor1");
+			
+			bkPrimario = (ServidorInterface) Naming.lookup("//127.0.0.1:3894/bkServidor1");
 
-
-		} catch (MalformedURLException | NotBoundException e) {
-			System.out.println("Erro no cliente: "+e.getMessage());
-			e.printStackTrace();
+		} catch (MalformedURLException | NotBoundException | RemoteException e) {
+			System.out.println("Servidor remoto não está ativo: "+e.getMessage());
+			//e.printStackTrace();
 		}
 
 	}
