@@ -37,7 +37,7 @@ public class Cliente2 {
 		serv2.servImprimeTabuleiro();
 		
 		try {
-			while(!serv2.servFimdeJogo()) {
+			while(serv2.servFimdeJogo()) {
 				iO = ler.nextInt();
 				jO = ler.nextInt();
 				

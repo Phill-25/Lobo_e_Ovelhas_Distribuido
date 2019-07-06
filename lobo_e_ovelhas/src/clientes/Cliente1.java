@@ -37,7 +37,7 @@ public class Cliente1 {
 		System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
 		
 		try {
-			while(!serv1.servFimdeJogo()) {
+			while(serv1.servFimdeJogo()) {
 				iO = ler.nextInt();
 				jO = ler.nextInt();
 				
