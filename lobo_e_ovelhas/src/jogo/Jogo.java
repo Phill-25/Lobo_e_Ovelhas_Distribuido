@@ -59,29 +59,25 @@ public class Jogo implements Interface_Jogo {
 	public boolean fimdeJogoOvelha() {
 		for (int i = 0; i < tabuleiro.length; i++) {
 			for (int j = 0; j < tabuleiro.length; j++) {
-				if(tabuleiro[i][j]==8) {
+				if(tabuleiro[i][j] == 8) {
 					
-					if(j+1 >= tabuleiro.length) {
+					if(j+1 >= tabuleiro.length) {//estamos no canto direito
 						if(tabuleiro[i-1][j-1] == 0 && tabuleiro[i+1][j-1] == 0)
 							return true;
 						
 						break;
 						
-					}if(j-1 < 0) {
+					}else if(j-1 < 0) { //estamos no canto esquerdo
 						if(tabuleiro[i-1][j+1] == 0 && tabuleiro[i+1][j+1] == 0)
 							return true;
 						
 						break;
-					}
-					
-					if(i-1 < 0) {
+					}else if(i-1 < 0) { //estamos em cima
 						if(tabuleiro[i+1][j-1] == 0 && tabuleiro[i+1][j+1] == 0)
 							return true;
 						
 						break;
-					}
-					
-					if(i+1 >= tabuleiro.length) {
+					}else { // estamos no meio do tabuleiro
 						if(tabuleiro[i-1][j-1] == 0 && tabuleiro[i+1][j-1] == 0 && tabuleiro[i-1][j+1] == 0 && tabuleiro[i+1][j+1] == 0)
 							return true;
 						
