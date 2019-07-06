@@ -49,8 +49,16 @@ public class Cliente1 {
 			}
 		} catch (RemoteException Re) {
 			
-			System.out.println("Erro aqui!");
-			Re.getStackTrace();
+			while(true) {
+				iO = ler.nextInt();
+				jO = ler.nextInt();
+				
+				iD = ler.nextInt();
+				jD = ler.nextInt();
+				
+				serv1.servBkExecutaJogada(iO, jO, iD, jD, 'O');
+				System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
+			}
 		}
 		
 		

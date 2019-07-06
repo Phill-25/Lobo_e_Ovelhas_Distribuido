@@ -35,24 +35,35 @@ public class Cliente2 {
 		System.out.println("Você joga com o Lobo!");
 		System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
 		serv2.servImprimeTabuleiro();
-		while(true) {
-			
-			iO = ler.nextInt();
-			jO = ler.nextInt();
-			
-			iD = ler.nextInt();
-			jD = ler.nextInt();
-			
-			serv2.servExecutaJogada(iO, jO, iD, jD, 'L');
-			System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
-		}
 		
+		try {
+			while(true) {
+				iO = ler.nextInt();
+				jO = ler.nextInt();
+				
+				iD = ler.nextInt();
+				jD = ler.nextInt();
+				
+				serv2.servExecutaJogada(iO, jO, iD, jD, 'O');
+				System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
+			}
+		} catch (RemoteException Re) {
+			
+			while(true) {
+				iO = ler.nextInt();
+				jO = ler.nextInt();
+				
+				iD = ler.nextInt();
+				jD = ler.nextInt();
+				
+				serv2.servBkExecutaJogada(iO, jO, iD, jD, 'O');
+				System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
+			}
+		}
+
+
 
 	}
-
-
-
-
 
 }
 
