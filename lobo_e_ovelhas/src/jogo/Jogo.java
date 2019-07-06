@@ -118,8 +118,12 @@ public class Jogo implements Interface_Jogo {
 			System.out.println("");
 
 		}
-
-		System.out.println("");	
+		System.out.print("   ");
+		for (int i = 0; i < tabuleiro.length; i++) {
+			System.out.print(i+1 +" ");
+		}
+		
+		System.out.println("\n");	
 	}
 	
 	@Override
