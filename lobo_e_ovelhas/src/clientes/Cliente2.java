@@ -47,9 +47,10 @@ public class Cliente2 {
 				serv2.servExecutaJogada(iO-1, jO-1, iD-1, jD-1, 'L');
 				System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
 			}
+			System.out.println("Fim de jogo!");
 		} catch (RemoteException Re) {
 			
-			while(true) {
+			while(!serv2.servFimdeJogo()) {
 				iO = ler.nextInt();
 				jO = ler.nextInt();
 				
@@ -59,6 +60,7 @@ public class Cliente2 {
 				serv2.servBkExecutaJogada(iO-1, jO-1, iD-1, jD-1, 'L');
 				System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
 			}
+			System.out.println("Fim de jogo!");
 		}
 
 
