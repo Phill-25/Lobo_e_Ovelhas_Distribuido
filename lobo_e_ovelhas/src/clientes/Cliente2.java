@@ -44,7 +44,7 @@ public class Cliente2 {
 				iD = ler.nextInt();
 				jD = ler.nextInt();
 				
-				serv2.servExecutaJogada(iO-1, jO-1, iD-1, jD-1, 'O');
+				serv2.servExecutaJogada(iO-1, jO-1, iD-1, jD-1, 'L');
 				System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
 			}
 		} catch (RemoteException Re) {
@@ -56,7 +56,7 @@ public class Cliente2 {
 				iD = ler.nextInt();
 				jD = ler.nextInt();
 				
-				serv2.servBkExecutaJogada(iO-1, jO-1, iD-1, jD-1, 'O');
+				serv2.servBkExecutaJogada(iO-1, jO-1, iD-1, jD-1, 'L');
 				System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
 			}
 		}
