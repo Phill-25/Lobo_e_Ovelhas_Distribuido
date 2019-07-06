@@ -101,6 +101,7 @@ public class Servidor1 extends UnicastRemoteObject implements ServidorInterface 
 			jogoServ1.executaJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
 			servidorRemoto.servSincJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
 			servidorRemoto.nextPayer();
+			
 		} catch (NullPointerException e) {
 			
 			bkPrimario.servSincJogada(iOrigem, jOrigem, iDestino, jDestino, jogador);
