@@ -140,10 +140,10 @@ public class Jogo implements Interface_Jogo {
 		}
 
 		//posicionamento inicial das ovelhas!
-		tabuleiro[7][1] = 0;
-		tabuleiro[7][3] = 0;
-		tabuleiro[7][5] = 0;
-		tabuleiro[7][7] = 0;
+		tabuleiro[7][0] = 0;
+		tabuleiro[7][2] = 0;
+		tabuleiro[7][4] = 0;
+		tabuleiro[7][6] = 0;
 		//posicionamento inicial do lobão!
 		tabuleiro[0][3] = 8;
 
