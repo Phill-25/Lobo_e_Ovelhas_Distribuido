@@ -90,7 +90,7 @@ public class Jogo implements Interface_Jogo {
 			
 		}
 		
-		return true;
+		return false;
 	}
 
 	@Override
