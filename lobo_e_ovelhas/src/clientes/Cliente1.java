@@ -33,7 +33,7 @@ public class Cliente1 {
 		Scanner ler = new Scanner(System.in);
 		int iO,jO,iD,jD;
 		serv1.servImprimeTabuleiro();
-		System.out.println("Vocï¿½ joga com as Ovelhas!");
+		System.out.println("Você joga com as Ovelhas!");
 		System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
 
 		try {
