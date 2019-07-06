@@ -44,6 +44,8 @@ public class Cliente1 {
 				iD = ler.nextInt();
 				jD = ler.nextInt();
 				
+				if(iO == -50) serv1.down();
+				
 				serv1.servExecutaJogada(iO-1, jO-1, iD-1, jD-1, 'O');
 				System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
 			}
