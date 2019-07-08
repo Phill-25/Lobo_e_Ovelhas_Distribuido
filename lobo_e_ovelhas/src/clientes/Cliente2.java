@@ -32,7 +32,7 @@ public class Cliente2 {
 
 		Scanner ler = new Scanner(System.in);
 		int iO,jO,iD,jD;
-		System.out.println("Vocï¿½ joga com o Lobo!");
+		System.out.println("Você joga com o Lobo!");
 		System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
 		serv2.servImprimeTabuleiro();
 
@@ -48,6 +48,7 @@ public class Cliente2 {
 				System.out.println("Digite o iOrigem, jOrigem, iDestino, jDestino");
 			}
 			System.out.println("Fim de jogo!");
+			ler.close();
 		} catch (RemoteException Re) {
 
 
